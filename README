@@ -1,8 +1,12 @@
 "This is a pushing note of git"
-git co shawn
 git pull --rebase
 git st
 git add ./
 git st
 git commit -m "{ }" ./
 git push
+
+
+
+
+
