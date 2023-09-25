@@ -149,3 +149,18 @@ import pandas as pd
 AAPL=pd.read_csv('/Users/shawn/Desktop/AAPL.csv',usecols=[0,4],index_col=0,parse_dates=True)
 print(AAPL)
 # %%
+import pandas as pd
+
+# 創建一個字典，包含您的數據
+data = {
+    '姓名': ['Alice', 'Bob', 'Charlie', 'David'],
+    '年齡': [25, 30, 35, 40],
+    '城市': ['New York', 'San Francisco', 'Los Angeles', 'Chicago']
+}
+
+# 使用字典創建 DataFrame
+df = pd.DataFrame(data)
+
+# 顯示 DataFrame
+print(df)
+# %%
