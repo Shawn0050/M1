@@ -164,3 +164,58 @@ df = pd.DataFrame(data)
 # 顯示 DataFrame
 print(df)
 # %%
+import numpy as np
+import plotly.graph_objs as go
+import nbformat
+#Define繪製策略損益圈方法
+def draw_PnL(data, title):
+    
+    fig = go.Figure(data)
+    
+    #設定畫布屬性
+    fig.update_layout(
+        title=title,   #圖表標題名稱
+        xaxis_title='股價', #x軸標題
+        yaxis_title='損益', #y軸標題
+        showlegend=True,  #顯示圖例
+        plot_bgcolor='white', #底色白色
+        xaxis=dict(linecolor='black', linewidth=2),  #x軸線為黑色，寬度=2
+        yaxis=dict(linecolor='black', linewidth=2),  #y軸同上
+        xaxis_showgrid=True,  #顯示x軸格線
+        yaxis_showgrid=True,  #y軸同上
+        xaxis_gridcolor='lightgray',  #x軸格線為亮灰色
+        yaxis_gridcolor='lightgray',  #y軸同上
+        #設定0軸格線為暗灰色
+        shapes=[dict(type='line', xref='paper', x0=0, x1=1, y0=0, y1=0, line=dict(color='darkgrey', width=3))],
+    )
+
+    #展示圖表
+    fig.show()
+
+    return
+option_premium = 8
+strike_price = 75
+prices_range = np.array(range(50, 101,1))   # define stock prices range
+stock_prices = prices_range
+
+BC75_profits = np.where(stock_prices > strike_price, (stock_prices - strike_price) - option_premium, -option_premium)
+stock_profits = stock_prices - strike_price
+
+# 建立plotly權益曲線
+trace1 = go.Scatter(x=prices_range,
+                    y=stock_profits,
+                    mode='lines',
+                    name='買入股票損益',
+                    line=dict(color='black'),
+                    )
+trace2 = go.Scatter(x=prices_range,
+                    y=BC75_profits,
+                    mode='lines',
+                    name='買入買權損益',
+                    line=dict(color='red'),
+                    )
+
+data =[trace1, trace2]
+title = '買入買權與買入股票到損益之比較圖'
+draw_PnL(data, title)
+# %%
