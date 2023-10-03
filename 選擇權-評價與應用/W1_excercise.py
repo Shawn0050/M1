@@ -193,29 +193,33 @@ def draw_PnL(data, title):
     fig.show()
 
     return
-option_premium = 8
-strike_price = 75
-prices_range = np.array(range(50, 101,1))   # define stock prices range
-stock_prices = prices_range
+#初始化參數
+option_premium = 8  #Option權利金
+strike_price = 75   #履約價格
+prices_range = np.array(range(50, 101, 1)) #定義股票價格區間
+stock_prices = prices_range #股價
 
-BC75_profits = np.where(stock_prices > strike_price, (stock_prices - strike_price) - option_premium, -option_premium)
+#計算損益
+BC75_profits = np.where(stock_prices > strike_price, (stock_prices - strike_price) - option_premium , -option_premium)
 stock_profits = stock_prices - strike_price
 
-# 建立plotly權益曲線
+#建立Plotly損益曲線
 trace1 = go.Scatter(x=prices_range,
                     y=stock_profits,
-                    mode='lines',
-                    name='買入股票損益',
-                    line=dict(color='black'),
-                    )
+                   mode='lines',
+                   name='買入股票損益',
+                   line=dict(color='black')
+                   )
+
 trace2 = go.Scatter(x=prices_range,
                     y=BC75_profits,
                     mode='lines',
                     name='買入買權損益',
-                    line=dict(color='red'),
-                    )
+                    line=dict(color='red')
+                   )
+#匯集所有損益曲線
+data = [trace1, trace2]
 
-data =[trace1, trace2]
-title = '買入買權與買入股票到損益之比較圖'
-draw_PnL(data, title)
+#繪製策略損益圖
+draw_PnL(data, '買入買權與買入股票到期損益之比較圖')
 # %%
