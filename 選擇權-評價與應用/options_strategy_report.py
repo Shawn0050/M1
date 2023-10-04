@@ -76,23 +76,25 @@ def draw_PnL_withpremiumandfees(data, title):
     fig.show()
     return
 # 組成
-def BP_profits(stock_prices,strike_price,option_premium):
-    return np.where(stock_prices < strike_price, (strike_price - stock_prices) - option_premium , -option_premium)
-def SP_profits(stock_prices,strike_price,option_premium):
-    return np.where(stock_prices > strike_price, option_premium, -((strike_price - stock_prices) - option_premium))
-def BC_profits(stock_prices,strike_price,option_premium):
-    return np.where(stock_prices > strike_price, (stock_prices - strike_price) - option_premium , -option_premium)
-def SC_profits(stock_prices,strike_price,option_premium):
-    return np.where(stock_prices < strike_price, option_premium, -((stock_prices - strike_price) - option_premium))
+def BP_profits(stock_prices,strike_price,option_premium,fee):
+    return np.where(stock_prices < strike_price - fee, (strike_price - stock_prices - fee) - option_premium -fee , -option_premium-fee)
+def SP_profits(stock_prices,strike_price,option_premium,fee):
+    return np.where(stock_prices > strike_price + fee, option_premium - fee, -((strike_price - stock_prices + fee) - option_premium) - fee)
+def BC_profits(stock_prices,strike_price,option_premium,fee):
+    return np.where(stock_prices > strike_price + fee, (stock_prices - strike_price - fee) - option_premium -fee , -option_premium - fee)
+def SC_profits(stock_prices,strike_price,option_premium,fee):
+    return np.where(stock_prices < strike_price - fee , option_premium - fee, -((stock_prices - strike_price + fee) - option_premium)-fee)
 def long_call_spread(call_premium,call_strike_price,stock_prices,strategy_name):
     stock_prices = stock_prices
     strike_price = call_strike_price[0]
     option_premium = call_premium[0]
-    a = BC_profits(stock_prices,strike_price,option_premium)
+    fee = 0
+    a = BC_profits(stock_prices,strike_price,option_premium,fee)
     stock_prices = stock_prices
     strike_price = call_strike_price[1]
     option_premium = call_premium[1]
-    b = SC_profits(stock_prices,strike_price,option_premium)
+    fee = 0
+    b = SC_profits(stock_prices,strike_price,option_premium,fee)
     c = a + b
     trace1 = go.Scatter(x=prices_range,
                     y=a,
@@ -118,11 +120,11 @@ def long_call_spread(call_premium,call_strike_price,stock_prices,strategy_name):
     fee = int(input('單邊手續費'))
     stock_prices = stock_prices
     strike_price = call_strike_price[0]
-    option_premium = call_premium[0]+fee
-    a = BC_profits(stock_prices,strike_price,option_premium)
+    option_premium = call_premium[0]
+    a = BC_profits(stock_prices,strike_price,option_premium,fee)
     strike_price = call_strike_price[1]
-    option_premium = call_premium[1]-fee
-    b = SC_profits(stock_prices,strike_price,option_premium)
+    option_premium = call_premium[1]
+    b = SC_profits(stock_prices,strike_price,option_premium,fee)
     c = a + b
     trace1 = go.Scatter(x=prices_range,
                 y=a,
@@ -149,11 +151,13 @@ def long_put_spread(put_premium,put_strike_price,stock_prices,strategy_name):
     stock_prices = stock_prices
     strike_price = put_strike_price[0]
     option_premium = put_premium[0]
-    a = BP_profits(stock_prices,strike_price,option_premium)
+    fee = 0
+    a = BP_profits(stock_prices,strike_price,option_premium,fee)
     stock_prices = stock_prices
     strike_price = put_strike_price[1]
     option_premium = put_premium[1]
-    b = SP_profits(stock_prices,strike_price,option_premium)
+    fee = 0
+    b = SP_profits(stock_prices,strike_price,option_premium,fee)
     c = a + b
     trace1 = go.Scatter(x=prices_range,
                     y=a,
@@ -179,11 +183,11 @@ def long_put_spread(put_premium,put_strike_price,stock_prices,strategy_name):
     fee = int(input('單邊手續費'))
     stock_prices = stock_prices
     strike_price = put_strike_price[0]
-    option_premium = put_premium[0]+fee
-    a = BP_profits(stock_prices,strike_price,option_premium)
+    option_premium = put_premium[0]
+    a = BP_profits(stock_prices,strike_price,option_premium,fee)
     strike_price = put_strike_price[1]
-    option_premium = put_premium[1]-fee
-    b = SP_profits(stock_prices,strike_price,option_premium)
+    option_premium = put_premium[1]
+    b = SP_profits(stock_prices,strike_price,option_premium,fee)
     c = a + b
     trace1 = go.Scatter(x=prices_range,
                 y=a,
@@ -209,19 +213,23 @@ def spread(call_premium,call_strike_price,put_premium,put_strike_price,stock_pri
     stock_prices = stock_prices
     strike_price = put_strike_price[0]
     option_premium = put_premium[0]
-    a = BP_profits(stock_prices,strike_price,option_premium)
+    fee = 0
+    a = BP_profits(stock_prices,strike_price,option_premium,fee)
     stock_prices = stock_prices
     strike_price = put_strike_price[1]
     option_premium = put_premium[1]
-    b = SP_profits(stock_prices,strike_price,option_premium)
+    fee = 0
+    b = SP_profits(stock_prices,strike_price,option_premium,fee)
     stock_prices = stock_prices
     strike_price = call_strike_price[0]
     option_premium = call_premium[0]
-    c = BC_profits(stock_prices,strike_price,option_premium)
+    fee = 0
+    c = BC_profits(stock_prices,strike_price,option_premium,fee)
     stock_prices = stock_prices
     strike_price = call_strike_price[1]
     option_premium = call_premium[1]
-    d = SC_profits(stock_prices,strike_price,option_premium)
+    fee = 0
+    d = SC_profits(stock_prices,strike_price,option_premium,fee)
     e = a + b + c + d
     trace1 = go.Scatter(x=prices_range,
                     y=a,
@@ -259,20 +267,20 @@ def spread(call_premium,call_strike_price,put_premium,put_strike_price,stock_pri
     fee = int(input('單邊手續費'))
     stock_prices = stock_prices
     strike_price = put_strike_price[0]
-    option_premium = put_premium[0] + fee
-    a = BP_profits(stock_prices,strike_price,option_premium)
+    option_premium = put_premium[0] 
+    a = BP_profits(stock_prices,strike_price,option_premium,fee)
     stock_prices = stock_prices
     strike_price = put_strike_price[1]
-    option_premium = put_premium[1] - fee
-    b = SP_profits(stock_prices,strike_price,option_premium)
+    option_premium = put_premium[1] 
+    b = SP_profits(stock_prices,strike_price,option_premium,fee)
     stock_prices = stock_prices
     strike_price = call_strike_price[0]
-    option_premium = call_premium[0] + fee
-    c = BC_profits(stock_prices,strike_price,option_premium)
+    option_premium = call_premium[0] 
+    c = BC_profits(stock_prices,strike_price,option_premium,fee)
     stock_prices = stock_prices
     strike_price = call_strike_price[1]
-    option_premium = call_premium[1] - fee
-    d = SC_profits(stock_prices,strike_price,option_premium)
+    option_premium = call_premium[1] 
+    d = SC_profits(stock_prices,strike_price,option_premium,fee)
     e = a + b + c + d
     trace1 = go.Scatter(x=prices_range,
                     y=a,
