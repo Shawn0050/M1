@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import plotly.graph_objs as go
 import nbformat
-from canvas import *
+from Canvas import *
 from CallandPut import *
 
 def long_call_spread(call_premium,call_strike_price,stock_prices,strategy_name):
