@@ -143,7 +143,7 @@ seaborn.set()
 plt.figure(figsize=(16,9))
 AAPL['Close'].plot()
 
-AAPL.to_csv('/Users/shawn/Desktop/AAPL.csv')
+# AAPL.to_csv('/Users/shawn/Desktop/AAPL.csv')
 # %%
 import pandas as pd
 AAPL=pd.read_csv('/Users/shawn/Desktop/AAPL.csv',usecols=[0,4],index_col=0,parse_dates=True)
