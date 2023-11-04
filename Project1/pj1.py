@@ -29,7 +29,7 @@ print("Call ATM Premium:", call_premium_atm)
 print("Put ATM Premium:", put_premium_atm)
 
 # 尋找含有“台指期近月”文本的<a>標籤
-a_tag = soup.find('a', string="台指期近月")
+a_tag = soup.find('a', string="加權指數")
 
 # 找到<a>標籤對應的父<span>標籤
 parent_span = a_tag.find_parent('span')
