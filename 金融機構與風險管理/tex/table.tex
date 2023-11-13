@@ -1,0 +1,187 @@
+\documentclass{article}
+\usepackage[a4paper, margin=1in]{geometry} 
+
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{table}[!htbp] 
+\centering
+\footnotesize % 减小整个表格的字体大小
+\caption{OLS Method} 
+\label{} 
+  \begin{tabular}{@{\extracolsep{0pt}}lc} 
+  \\[-1.8ex]\hline 
+  \hline \\[-1.8ex] 
+   & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+  \cline{2-2} 
+  \\[-1.8ex] & is\_upgraded \\ 
+  \hline \\[-1.8ex] 
+   CAPEI\_change & $-$0.005 \\ 
+    & (0.004) \\ 
+    & \\ 
+   bm\_change & $-$0.032 \\ 
+    & (0.019) \\ 
+    & \\ 
+   evm\_change & $-$0.010 \\ 
+    & (0.014) \\ 
+    & \\ 
+   pe\_op\_basic\_change & $-$0.065 \\ 
+    & (0.087) \\ 
+    & \\ 
+   pe\_op\_dil\_change & 0.060 \\ 
+    & (0.091) \\ 
+    & \\ 
+   pe\_exi\_change & 0.005 \\ 
+    & (0.020) \\ 
+    & \\ 
+   pe\_inc\_change & $-$0.001 \\ 
+    & (0.019) \\ 
+    & \\ 
+   ps\_change & 0.172$^{***}$ \\ 
+    & (0.054) \\ 
+    & \\ 
+   pcf\_change & $-$0.011 \\ 
+    & (0.015) \\ 
+    & \\ 
+   dpr\_change & $-$0.014 \\ 
+    & (0.015) \\ 
+    & \\ 
+   npm\_change & 0.042$^{***}$ \\ 
+    & (0.012) \\ 
+    & \\ 
+   opmbd\_change & $-$0.322$^{***}$ \\ 
+    & (0.099) \\ 
+    & \\ 
+   gpm\_change & 0.074 \\ 
+    & (0.052) \\ 
+    & \\ 
+   ptpm\_change & $-$0.002 \\ 
+    & (0.004) \\ 
+    & \\ 
+   roa\_change & 0.293$^{***}$ \\ 
+    & (0.091) \\ 
+    & \\ 
+   roe\_change & $-$0.018$^{**}$ \\ 
+    & (0.007) \\ 
+    & \\ 
+   roce\_change & $-$0.009 \\ 
+    & (0.006) \\ 
+    & \\ 
+   efftax\_change & 0.005 \\ 
+    & (0.010) \\ 
+    & \\ 
+   aftret\_eq\_change & 0.016 \\ 
+    & (0.021) \\ 
+    & \\ 
+   aftret\_equity\_change & $-$0.016 \\ 
+    & (0.021) \\ 
+    & \\ 
+   cash\_lt\_change & 0.018 \\ 
+    & (0.020) \\ 
+    & \\ 
+   Constant & 0.489$^{***}$ \\ 
+    & (0.032) \\ 
+    & \\ 
+  \hline \\[-1.8ex] 
+  Observations & 312 \\ 
+  R$^{2}$ & 0.131 \\ 
+  Adjusted R$^{2}$ & 0.069 \\ 
+  Residual Std. Error & 0.483 (df = 290) \\ 
+  F Statistic & 2.091$^{***}$ (df = 21; 290) \\ 
+  \hline 
+  \hline \\[-1.8ex] 
+  \textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+  \end{tabular} 
+  \end{table} 
+
+\newpage
+
+\begin{table}[!htbp] \centering 
+  \footnotesize
+  \caption{Logit Method} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-2} 
+\\[-1.8ex] & is\_upgraded \\ 
+\hline \\[-1.8ex] 
+ CAPEI\_change & $-$0.046 \\ 
+  & (0.030) \\ 
+  & \\ 
+ bm\_change & $-$1.171$^{***}$ \\ 
+  & (0.363) \\ 
+  & \\ 
+ evm\_change & $-$0.306$^{**}$ \\ 
+  & (0.156) \\ 
+  & \\ 
+ pe\_op\_basic\_change & $-$0.686 \\ 
+  & (1.490) \\ 
+  & \\ 
+ pe\_op\_dil\_change & 0.636 \\ 
+  & (1.505) \\ 
+  & \\ 
+ pe\_exi\_change & 0.067 \\ 
+  & (0.129) \\ 
+  & \\ 
+ pe\_inc\_change & $-$0.025 \\ 
+  & (0.116) \\ 
+  & \\ 
+ ps\_change & 0.815$^{***}$ \\ 
+  & (0.310) \\ 
+  & \\ 
+ pcf\_change & $-$0.093 \\ 
+  & (0.084) \\ 
+  & \\ 
+ dpr\_change & $-$0.022 \\ 
+  & (0.086) \\ 
+  & \\ 
+ npm\_change & 0.594$^{***}$ \\ 
+  & (0.183) \\ 
+  & \\ 
+ opmbd\_change & $-$2.316$^{***}$ \\ 
+  & (0.669) \\ 
+  & \\ 
+ gpm\_change & 0.157 \\ 
+  & (0.280) \\ 
+  & \\ 
+ ptpm\_change & $-$0.193$^{**}$ \\ 
+  & (0.088) \\ 
+  & \\ 
+ roa\_change & 2.041$^{***}$ \\ 
+  & (0.606) \\ 
+  & \\ 
+ roe\_change & $-$0.208 \\ 
+  & (0.175) \\ 
+  & \\ 
+ roce\_change & $-$0.108$^{***}$ \\ 
+  & (0.042) \\ 
+  & \\ 
+ efftax\_change & 0.023 \\ 
+  & (0.074) \\ 
+  & \\ 
+ aftret\_eq\_change & 0.553$^{**}$ \\ 
+  & (0.258) \\ 
+  & \\ 
+ aftret\_equity\_change & $-$0.550$^{**}$ \\ 
+  & (0.260) \\ 
+  & \\ 
+ cash\_lt\_change & 0.093 \\ 
+  & (0.118) \\ 
+  & \\ 
+ Constant & $-$0.031 \\ 
+  & (0.144) \\ 
+  & \\ 
+\hline \\[-1.8ex] 
+Observations & 312 \\ 
+Log Likelihood & $-$183.410 \\ 
+Akaike Inf. Crit. & 410.820 \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} 
+
+\end{document}
