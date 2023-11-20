@@ -191,7 +191,7 @@ data <- read.csv('/Users/shawn/Github/M1/金融機構與風險管理/New_/forReg
 data <- data[, -1]
 data$rating_diff <- factor(data$rating_diff, ordered = TRUE)
 column_names <- colnames(data)
-# 逐步選擇
+# 逐步選擇(結果發現probit model會出現無法收斂的情況，有鑒於逐步選擇的過程大致與logit相似，故後續直接採用logit選擇出的解釋變數)
 stepwise_model_selection <- function(data, column_names, base_formula) {
   best_aic <- Inf
   best_factor <- NA
