@@ -33,6 +33,7 @@ model_ols2 <- lm(rating_diff ~ total.debt..total.assets_change +
                 gross.profit..total.assets_change,
                 data = data)
 summary(model_ols2)
+stargazer(model_ols2, type = "latex")
 # train 70-30
 model_ols_70 <- lm(rating_diff ~ total.debt..total.assets_change + 
                      interest..average.total.debt_change +
@@ -130,6 +131,7 @@ model_logit <- polr(rating_diff ~ total.debt..total.assets_change +
                       receivables.turnover_change
                     , data=data, Hess = TRUE)
 summary(model_logit)
+stargazer(model_logit, type = "latex")
 
 # train 70-30
 model_logit_70 <- polr(rating_diff ~ total.debt..total.assets_change + 
@@ -236,6 +238,7 @@ model_probit <- polr(rating_diff ~ total.debt..total.assets_change +
                       receivables.turnover_change
                     , method = 'probit', data=data, Hess = TRUE)
 summary(model_probit)
+stargazer(model_probit, type = "latex")
 
 # train 70-30
 model_probit_70 <- polr(rating_diff ~ total.debt..total.assets_change + 

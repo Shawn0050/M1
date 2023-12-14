@@ -1,10 +1,10 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.5.14)  3 DEC 2023 16:54
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.5.14)  3 DEC 2023 17:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/shawn/Github/M1/Others/Project_Latex/test2
-(/Users/shawn/Github/M1/Others/Project_Latex/test2.tex
+**/Users/shawn/Github/M1/Others/Project_Latex/test3
+(/Users/shawn/Github/M1/Others/Project_Latex/test3.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-02-22> (/usr/local/texlive/2023/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
@@ -93,8 +93,8 @@ File: l3backend-xetex.def 2023-01-16 L3 backend support: XeTeX
 \g__pdf_backend_object_int=\count268
 \g__pdf_backend_annotation_int=\count269
 \g__pdf_backend_link_int=\count270
-) (./test2.aux)
-\openout1 = `test2.aux'.
+) (./test3.aux)
+\openout1 = `test3.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
 LaTeX Font Info:    ... okay on input line 4.
@@ -118,14 +118,14 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
 LaTeX Font Info:    ... okay on input line 4.
  [1
 
-] (./test2.aux) ) 
+] (./test3.aux) ) 
 Here is how much of TeX's memory you used:
  1189 strings out of 476683
  19364 string characters out of 5804047
- 1844018 words of memory out of 5000000
+ 1843018 words of memory out of 5000000
  21496 multiletter control sequences out of 15000+600000
  512749 words of font info for 35 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  54i,5n,62p,241b,111s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on test2.pdf (1 page).
+Output written on test3.pdf (1 page).
