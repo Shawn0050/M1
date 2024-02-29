@@ -1,0 +1,25 @@
+Code File
+1. factor.ipynb -> 用以計算3因子報酬率
+2. merge.ipynb  -> 用以計算股票投資組合報酬率（10bm.ipynb, 10marketcap.ipynb, 25size_bm.ipynb是個別股票投資組合的計算過程，最後為了方便FM regression進行，才合併到merge.ipynb）
+3. etf_transform.ipynb -> 用以進行ETF資料的前處理
+
+4. FM_stock_portfolio.R -> 主要針對股票投資組合做Fama MacBeth Regression
+5. FM_stock_portfolio.R -> 主要針對ETF做Fama MacBeth Regression
+6. FM_merged.R -> 對各因子實施成本的進行檢定，同時也包含了上面兩個檔案的code
+
+Regression Data File
+1. ff3.csv -> 整理好的3因子資料
+2. merged_stock_portfolios.csv -> 整理好的股票投資組合資料
+
+Data Source
+1. TEJ（only raw data）
+
+* 從201001~202312都有資料的ETF
+    0050
+    0051
+    0052
+    0053
+    0055
+    0056
+    0057
+    0061
